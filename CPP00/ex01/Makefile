@@ -1,21 +1,22 @@
 YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
-SRCS			= megaphone.cpp
+SRCS			= main.cpp\
+					PhoneBook.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CC				= c++
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -std=c++98
-NAME			= megaphone
+NAME			= phonebook
 
 all:			$(NAME)
 
-.c.o:
+%.o: %.cpp
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				@echo "\n${GREEN} |   Compiling CPP00/ex00"
+				@echo "\n${GREEN} |   Compiling CPP00/ex01"
 				@${CC} ${CFLAGS}  -o ${NAME} ${OBJS}
 				@echo "${YELLOW}          [OK]\n"
 
