@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:15:25 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/27 18:32:33 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/05/27 19:52:26 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	Phonebook::Add(Phonebook &contact)
 	if (Phonebook::Index == 8)
 		Phonebook::Index--;
 	Phonebook::Index++;
-	std::cout << "Adding a new contact at index number " << Phonebook::Index << std::endl;
+	std::cout << std::endl << "Adding a new contact at index number " << Phonebook::Index << std::endl;
 	contact.Informations("First Name", contact.FirstName);
 	contact.Informations("Last Name", contact.LastName);
 	contact.Informations("Nickname", contact.Nickname);
@@ -63,7 +63,6 @@ void	Phonebook::Informations(std::string Type, std::string &TypeRef)
 			flag = 1;
 	}
 	TypeRef = str;
-	std::cout << "Your entered the " << Type << " : " << TypeRef << std::endl;
 	return ;
 }
 
@@ -77,6 +76,20 @@ void	Phonebook::PrintContact(Phonebook contact)
 	std::cout << std::endl;
 }
 
+std::string	Phonebook::TruncColumn(std::string str)
+{
+	if (str.length() > 10)
+		return (str.substr(0, 9) + '.');
+	else if (str.length() < 10)
+	{
+		while(str.length() < 10)
+			str += ' ';
+		return (str);
+	}
+	else
+		return (str);
+}
+
 void	Phonebook::Search(Phonebook *contact)
 {
 	int			i = -1;
@@ -85,25 +98,25 @@ void	Phonebook::Search(Phonebook *contact)
 	
 	if (Phonebook::ContactIndex() == 0)
 	{
-		std::cout << "Do you want to search a contact in an empty phonebook ?\n Are you mad ?!" << std::endl;
+		std::cout << "Do you want to search a contact in an empty phonebook ?\nAre you mad ?!" << std::endl;
 		return ;
 	}
 	std::cout << "|  index   |first name| last name| nickname |" << std::endl;
 	while (++i < Phonebook::ContactIndex())
 	{
 		std::cout << "|    " << i + 1 << "     |";
-		std::cout << contact[i].FirstName << "|";
-		std::cout << contact[i].LastName << "|";
-		std::cout << contact[i].Nickname << "|" << std::endl;
+		std::cout << Phonebook::TruncColumn(contact[i].FirstName) << "|";
+		std::cout << Phonebook::TruncColumn(contact[i].LastName) << "|";
+		std::cout << Phonebook::TruncColumn(contact[i].Nickname) << "|" << std::endl;
 	}
-	std::cout << "Please input the contact's index you want to open :" << std::endl;
+	std::cout << std::endl << "Please input the contact's index you want to open :" << std::endl;
 	while (!flag)
 	{
 		std::getline(std::cin, desired_index);
 		if (desired_index.empty())
 			std::cout << "The index can't be empty. Again, input a valid index number :" << std::endl;
 		else if (std::atoi(desired_index.c_str()) > Phonebook::ContactIndex()\
-			&& std::atoi(desired_index.c_str()) <= 1)
+			|| std::atoi(desired_index.c_str()) < 1)
 			std::cout << "The index is not valid. Again, input a valid index number :" << std::endl;
 		else
 		{
@@ -111,7 +124,7 @@ void	Phonebook::Search(Phonebook *contact)
 			flag = 1;
 		}
 	}
-	std::cout << "Here are your contact details :" << std::endl;
+	std::cout << std::endl << "Here are your contact details :" << std::endl;
 	contact[i].PrintContact(contact[i]);
 	return ;
 }

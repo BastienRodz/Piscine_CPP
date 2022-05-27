@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:07:41 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/27 18:34:44 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/05/27 19:29:00 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Phonebook {
 		std::string DarkestSecret;
 
 		static int	Index;
+		static std::string TruncColumn(std::string str);
 		void		Informations(std::string Type, std::string &TypeRef);
 		void		PrintContact(Phonebook contact);
 		
