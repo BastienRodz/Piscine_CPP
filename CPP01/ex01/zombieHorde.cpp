@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 09:49:03 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 13:40:12 by barodrig         ###   ########.fr       */
+/*   Created: 2022/05/30 13:28:52 by barodrig          #+#    #+#             */
+/*   Updated: 2022/05/30 13:47:47 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-# include <iostream>
-# include <string>
-# include <cstdlib>
+#include "Zombie.hpp"
 
-class Zombie {
-	private:
-		std::string name;
-		
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-		void	announce(void);
-};
-
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif
+//Create a group of zombie whith chosen names, they are allocated in a single allocation.
+//The function return a pointer to the first zombie.
+Zombie*	zombieHorde(int n, std::string name)
+{
+	Zombie*	zombies = new Zombie[n];
+	for (int i = 0; i < n; i++)
+		zombies[i].chooseName(name);
+	return (zombies);
+}
