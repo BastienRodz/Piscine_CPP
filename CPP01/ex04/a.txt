@@ -1,6 +1,0 @@
-a.txt
-main.cpp
-main.hpp
-main.o
-Makefile
-sed

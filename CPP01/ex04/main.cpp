@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:23:06 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 16:02:34 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/05/30 16:31:16 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,39 @@ int	main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cout << "Usage: ./sed <filename> <string1> <string2>" << std::endl;
+		std::cerr << "Usage: ./sed <filename> <string1> <string2>" << std::endl;
 		return (1);
 	}
-	std::fstream	file(av[1]);
-	std::string		filename = av[1];
+	std::fstream		filein(av[1], std::ios::in);
+	const std::string	filename = av[1];
 	if (!file.is_open())
 	{
-		std::cout << "Error: file " << filename << " not found or can't be opened" << std::endl;
+		std::cerr << "Error: file " << filename << " not found or can't be opened" << std::endl;
 		return (1);
 	}
-	std::string		s1 = av[2];
-	std::string		s2 = av[3];
-	std::string		line;
-	size_t			i;
-	while (getline(file, line))
+	const std::string	s1 = av[2];
+	const std::string	s2 = av[3];
+	std::string			line;
+	std::string			final;
+	size_t				i;
+	while (getline(filein, line))
 	{
-		i = 0;
-		while (i < line.size())
+		while (1)
 		{
-			if (line.compare(i, s1.size(), s1) == 0)
+			i = line.find(s1);
+			if (i == std::string::npos)
 			{
-				line.erase(i, s1.size());
-				line.insert(i, s2);
-				i += s2.size();
+				final += line;
+				break;
 			}
-			else
-				i++;
+			line.erase(i, strlen(av[2]));
+			line.insert(i, s2);
 		}
-		file << line << std::endl;
+		final += "\n";
 	}
-	file.close();
+	std::fstream	fileout(av[1], std::ios::out);
+	fileout << final;
+	filein.close();
+	fileout.close();
 	return (0);
 }

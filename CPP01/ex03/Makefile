@@ -1,7 +1,11 @@
 YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
-SRCS			= *.cpp\
+SRCS			= main.cpp\
+					Weapon.cpp\
+					HumanA.cpp\
+					HumanB.cpp
+
 OBJS			= $(SRCS:.cpp=.o)
 
 CC				= c++
@@ -15,7 +19,7 @@ all:			$(NAME)
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				@echo "\n${GREEN} |   Compiling CPP01/ex01"
+				@echo "\n${GREEN} |   Compiling CPP01/ex03"
 				@${CC} ${CFLAGS}  -o ${NAME} ${OBJS}
 				@echo "${YELLOW}          [OK]\n"
 

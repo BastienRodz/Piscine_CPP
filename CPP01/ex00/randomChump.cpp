@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:48:58 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 13:16:38 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:01:05 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void randomChump(std::string name)
 {
 	Zombie z = Zombie(name);
 	z.announce();
-	//z.~Zombie();
 	return ;
 }
