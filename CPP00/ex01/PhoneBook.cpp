@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:15:25 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/27 19:52:26 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/05/30 09:38:06 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	Phonebook::Search(Phonebook *contact)
 	
 	if (Phonebook::ContactIndex() == 0)
 	{
-		std::cout << "Do you want to search a contact in an empty phonebook ?\nAre you mad ?!" << std::endl;
+		std::cout << "\nDo you want to search a contact in an empty phonebook ?\nAre you mad ?!" << std::endl;
 		return ;
 	}
 	std::cout << "|  index   |first name| last name| nickname |" << std::endl;
