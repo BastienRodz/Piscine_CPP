@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:28:52 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 13:47:47 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:19:15 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //Create a group of zombie whith chosen names, they are allocated in a single allocation.
 //The function return a pointer to the first zombie.
-Zombie*	zombieHorde(int n, std::string name)
+Zombie*	Zombie::zombieHorde(int n, std::string name)
 {
 	Zombie*	zombies = new Zombie[n];
 	for (int i = 0; i < n; i++)

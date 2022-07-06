@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:49:57 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 13:51:20 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:22:24 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 		n = atoi(av[1]);
 	if (n <= 0)
 		return (std::cout << "Error: number of zombies must be positive" << std::endl, 1);
-	Zombie *z = zombieHorde(n, "Patrick");
+	Zombie *z = Zombie::zombieHorde(n, "Patrick");
 	for (i = 0; i < n; i++)
 		z[i].announce();
 	delete[] z;

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:49:03 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 13:40:12 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:19:42 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ class Zombie {
 		std::string name;
 		
 	public:
-		Zombie(std::string name);
-		~Zombie(void);
-		void	announce(void);
+						Zombie(std::string name);
+						~Zombie(void);
+		void			announce(void);
+		static Zombie*	newZombie(std::string name);
+		static void		randomChump(std::string name);
 };
-
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
 
 #endif
