@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:15:20 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/27 19:53:36 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:36:51 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,23 @@
 int	main(void)
 {
 	std::string	cmd;
-	Phonebook	contact[8];
+	Phonebook phonebook;
 
 	while (cmd != "EXIT")
 	{
 		if (Phonebook::ContactIndex() > 0)
-			std::cout << std::endl;
+		std::cout << std::endl;
 		std::cout << "Please enter a command :" << std::endl;
 		std::getline(std::cin, cmd);
+	
 		if (cmd == "ADD")
-			Phonebook::Add(contact[Phonebook::ContactIndex()]);
+			Phonebook::Add(&phonebook);
 		else if (cmd == "SEARCH")
-			Phonebook::Search(contact);
-		else if (cmd != "EXIT")
-			std::cout << std::endl << "Please enter ADD, SEARCH or EXIT." << std::endl;
+			Phonebook::Search(&phonebook);
+		else if (cmd == "EXIT")
+			break ;
+		else
+			std::cout << "Please enter ADD, SEARCH or EXIT." << std::endl;
 	}
 	return (0);
 }

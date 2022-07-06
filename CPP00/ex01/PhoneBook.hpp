@@ -6,12 +6,13 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:07:41 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/27 19:29:00 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:13:16 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
+# include "Contact.hpp"
 # include <iostream>
 # include <string>
 # include <cstdlib>
@@ -19,23 +20,17 @@
 class Phonebook {
 	
 	private:
-		std::string FirstName;
-		std::string LastName;
-		std::string Nickname;
-		std::string PhoneNumber;
-		std::string DarkestSecret;
-
-		static int	Index;
-		static std::string TruncColumn(std::string str);
-		void		Informations(std::string Type, std::string &TypeRef);
-		void		PrintContact(Phonebook contact);
+		static int Index;
+		Contact contact[8];
 		
 	public:
-		static int	ContactIndex(void);
-		static void	Add(Phonebook &contact);
-		static void	Search(Phonebook *contact);
 		Phonebook(void);
 		~Phonebook(void);
+		static int 			ContactIndex(void);
+		static void 		Add(Phonebook *phonebook);
+		static void 		Search(Phonebook *phonebook);
+
 };
+
 
 #endif
