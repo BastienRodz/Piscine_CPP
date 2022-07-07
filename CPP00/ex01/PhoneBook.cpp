@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:15:25 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/06 10:27:16 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:40:18 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,12 @@ void	Phonebook::Search(Phonebook *phonebook)
 	while (!flag)
 	{
 		std::getline(std::cin, desired_index);
+		if (std::cin.eof())
+		{
+			std::cout << "WOW ! Really ? Don't be that violent dude !" << std::endl;
+			std::cin.clear();
+			return ;
+		}
 		if (desired_index.empty())
 			std::cout << "The index can't be empty. Again, input a valid index number :" << std::endl;
 		else if (((std::atoi(desired_index.c_str()) < 1 || std::atoi(desired_index.c_str()) > 8))\

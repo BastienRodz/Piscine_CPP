@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 15:32:48 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/06 10:17:13 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:40:40 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ void	Contact::Informations(std::string Type, Contact *contact)
 	while (!flag)
 	{
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cout << "WOW ! Really ? Don't be that violent dude !" << std::endl;
+			std::cin.clear();
+			return ;
+		}
 		if (str.empty())
 			std::cout << "A contact field can't be empty, please write something" << std::endl;
 		else

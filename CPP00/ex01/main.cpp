@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:15:20 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/06 11:36:51 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:37:02 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(void)
 		else if (cmd == "SEARCH")
 			Phonebook::Search(&phonebook);
 		else if (cmd == "EXIT")
+			break ;
+		else if (std::cin.eof())
 			break ;
 		else
 			std::cout << "Please enter ADD, SEARCH or EXIT." << std::endl;
