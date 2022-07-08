@@ -6,14 +6,19 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:23:06 by barodrig          #+#    #+#             */
-/*   Updated: 2022/05/30 16:31:16 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/08 11:02:25 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+# include <iostream>
+# include <fstream>
+# include <string>
+# include <iterator>
+# include <string.h>
 
 // This program search av[2] (s1) in a file given as av[1] (filename)
 // then it replaces s1 by s2 in the file.
+
 int	main(int ac, char **av)
 {
 	if (ac != 4)
@@ -21,9 +26,13 @@ int	main(int ac, char **av)
 		std::cerr << "Usage: ./sed <filename> <string1> <string2>" << std::endl;
 		return (1);
 	}
+	
 	std::fstream		filein(av[1], std::ios::in);
 	const std::string	filename = av[1];
-	if (!file.is_open())
+	const std::string 	finalname = filename + ".replace";
+	std::ofstream		fileout;
+
+	if (!filein.is_open())
 	{
 		std::cerr << "Error: file " << filename << " not found or can't be opened" << std::endl;
 		return (1);
@@ -48,7 +57,7 @@ int	main(int ac, char **av)
 		}
 		final += "\n";
 	}
-	std::fstream	fileout(av[1], std::ios::out);
+	fileout.open(finalname.c_str(), std::ios::out);
 	fileout << final;
 	filein.close();
 	fileout.close();
