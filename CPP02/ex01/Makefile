@@ -2,7 +2,7 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					Harl.cpp
+					Fixed.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)
@@ -10,7 +10,7 @@ OBJS			= $(SRCS:.cpp=.o)
 CC				= c++
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -std=c++98
-NAME			= harl
+NAME			= fixed
 
 all:			$(NAME)
 
@@ -18,7 +18,7 @@ all:			$(NAME)
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				@echo "\n${GREEN} |   Compiling CPP01/ex05"
+				@echo "\n${GREEN} |   Compiling CPP02/ex01"
 				@${CC} ${CFLAGS}  -o ${NAME} ${OBJS}
 				@echo "${YELLOW}          [OK]\n"
 
