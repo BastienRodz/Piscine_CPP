@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 14:04:00 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/25 18:53:07 by barodrig         ###   ########.fr       */
+/*   Created: 2022/07/08 15:02:33 by barodrig          #+#    #+#             */
+/*   Updated: 2022/07/25 18:21:34 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Fixed.hpp"
 
-Weapon::Weapon(std::string type) : type(type)
+int main(void) 
 {
-	return;
-}
+    Fixed       a;
+    Fixed const b( Fixed( 5.05f ) * Fixed ( 2 ) );
 
-Weapon::~Weapon(void)
-{
-	return;
-}
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
 
-std::string const &	Weapon::getType(void)
-{
-	return (this->type);
-}
+    std::cout << b << std::endl;
+    
+    std::cout << Fixed::max( a, b ) << std::endl;
 
-void	Weapon::setType(std::string type)
-{
-	this->type = type;
-	return;
+    return (0);
 }
