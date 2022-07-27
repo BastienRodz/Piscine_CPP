@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:58:48 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/26 15:16:22 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:59:37 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ void	ClapTrap::attack( const std::string & target )
 		std::cout << "ClapTrap " << _name << " can't attack, it is out of energy" << std::endl;
 		return ;
 	}
+    else if (_hp <= 0)
+    {
+        std::cout << "ClapTrap " << _name << " is KO, it can't attack. You should try to repair it !" << std::endl;
+    }
 	else
 		std::cout << "ClapTrap " << _name << " attacks " << target << " causing " << _dmg << " point of damage!" << std::endl;
 	return ;
@@ -65,6 +69,10 @@ void	ClapTrap::attack( const std::string & target )
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
+    if (_hp <= 0)
+    {
+        std::cout << "ClapTrap " << _name << " is KO, it can't take anymore damages. You should try to repair it !" << std::endl;
+    }
 	std::cout << "ClapTrap " << _name << " takes " << amount << " damage" << std::endl;
 	return ;
 }
