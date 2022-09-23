@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 13:55:40 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/23 09:35:25 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/23 09:48:02 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,16 @@ int	main(void)
 	std::string &stringREF = str;
 
 	std::cout << "Memory address of str: " << &str << std::endl;
-	std::cout << "Memory address of stringPTR: " << &stringPTR << std::endl;
+	std::cout << "Memory address of stringPTR: " << stringPTR << std::endl;
+	std::cout << "Memory address of stringREF: " << &stringREF << std::endl;
+	std::cout << std::endl;
+	std::cout << "Value of str: " << str << std::endl;
+	std::cout << "Value of stringPTR: " << *stringPTR << std::endl;
+	std::cout << "Value of stringREF: " << stringREF << std::endl;
+
+	str = "WHO IS CLODAGH ?";
+	std::cout << "\n\nMemory address of str: " << &str << std::endl;
+	std::cout << "Memory address of stringPTR: " << stringPTR << std::endl;
 	std::cout << "Memory address of stringREF: " << &stringREF << std::endl;
 	std::cout << std::endl;
 	std::cout << "Value of str: " << str << std::endl;

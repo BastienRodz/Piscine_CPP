@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:48:58 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/06 13:30:01 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/23 09:49:42 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // The reason it has been allocated on the stack is because it is only used here and not in the main function.
 // We don't need to access it later.
 
-void Zombie::randomChump(std::string name)
+void randomChump(std::string name)
 {
 	Zombie z = Zombie(name);
 	z.announce();
