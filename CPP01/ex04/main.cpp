@@ -6,15 +6,11 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:23:06 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/08 11:02:25 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:12:01 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <fstream>
-# include <string>
-# include <iterator>
-# include <string.h>
+# include "main.hpp"
 
 // This program search av[2] (s1) in a file given as av[1] (filename)
 // then it replaces s1 by s2 in the file.
