@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:23:06 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/23 10:12:01 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:37:16 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(int ac, char **av)
 {
-	if (ac != 4)
+	if (ac != 4 || strlen(av[1]) == 0 || strlen(av[2]) == 0 || strlen(av[3]) == 0)
 	{
 		std::cerr << "Usage: ./sed <filename> <string1> <string2>" << std::endl;
 		return (1);
