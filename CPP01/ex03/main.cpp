@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:03:23 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/08 11:21:45 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:08:15 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
+	}
+	{
+		HumanB johnny("Johnny");
+		johnny.attack();
 	}
 	return 0;
 }

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 09:48:58 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/23 09:49:42 by barodrig         ###   ########.fr       */
+/*   Created: 2022/09/23 10:12:04 by barodrig          #+#    #+#             */
+/*   Updated: 2022/09/23 10:12:38 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-// Here the allocation is made on the stack, so it will be destroyed at the end of the function.
-// The reason it has been allocated on the stack is because it is only used here and not in the main function.
-// We don't need to access it later.
+# include <iostream>
+# include <fstream>
+# include <string>
+# include <iterator>
+# include <string.h>
 
-void randomChump(std::string name)
-{
-	Zombie z = Zombie(name);
-	z.announce();
-	return ;
-}
+#endif

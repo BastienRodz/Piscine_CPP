@@ -6,7 +6,11 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:59:09 by barodrig          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/07/26 14:59:39 by barodrig         ###   ########.fr       */
+=======
+/*   Updated: 2022/07/27 14:56:12 by barodrig         ###   ########.fr       */
+>>>>>>> 8d7423ca64024776acdb381d6368740a7c9e7e40
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +21,11 @@
 
 class   ClapTrap{
     
+<<<<<<< HEAD
     private:
+=======
+    protected :
+>>>>>>> 8d7423ca64024776acdb381d6368740a7c9e7e40
         std::string _name;
         int         _hp;
         int         _ep;

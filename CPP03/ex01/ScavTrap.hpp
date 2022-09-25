@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 09:48:58 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/23 09:49:42 by barodrig         ###   ########.fr       */
+/*   Created: 2022/07/27 14:19:34 by barodrig          #+#    #+#             */
+/*   Updated: 2022/07/27 15:02:21 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-// Here the allocation is made on the stack, so it will be destroyed at the end of the function.
-// The reason it has been allocated on the stack is because it is only used here and not in the main function.
-// We don't need to access it later.
+# include "ClapTrap.hpp"
+# include "iomanip"
 
-void randomChump(std::string name)
+class ScavTrap : virtual public ClapTrap
 {
-	Zombie z = Zombie(name);
-	z.announce();
-	return ;
-}
+    public:
+        ScavTrap( void );
+        ScavTrap (std::string name);
+        ScavTrap(const ScavTrap & rhs);
+        ~ScavTrap( void );
+        ScavTrap &  operator=(const ScavTrap & rhs);
+        void    guardGate( void );
+};
+
+#endif
