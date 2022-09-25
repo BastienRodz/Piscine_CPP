@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:02:42 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/25 18:55:20 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:48:13 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::Fixed(Fixed const & src)
 }
 
 Fixed::Fixed(int const n)
-        : _fixedPointValue(n << Fixed::_fractionalBits)
+        : _fixedPointValue(roundf(n * (1 << Fixed::_fractionalBits)))
 {
     return ;
 }
@@ -45,12 +45,12 @@ Fixed::~Fixed(void)
 
 float Fixed::toFloat(void) const
 {
-    return (static_cast<float>(_fixedPointValue) / (1 << Fixed::_fractionalBits));
+    return ((float)_fixedPointValue / (float)(1 << Fixed::_fractionalBits));
 }
 
 int Fixed::toInt(void) const
 {
-    return (_fixedPointValue >> Fixed::_fractionalBits);
+    return ((int)_fixedPointValue / (int)(1 << Fixed::_fractionalBits));
 }
 
 int     Fixed::getRawBits(void) const

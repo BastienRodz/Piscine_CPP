@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:02:42 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/27 17:18:48 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:20:54 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Fixed::Fixed(Fixed const & src)
 }
 
 Fixed::Fixed(int const n)
-        : _fixedPointValue(n << Fixed::_fractionalBits)
+        : _fixedPointValue(roundf(n << Fixed::_fractionalBits))
 {
     std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float const n)
-        : _fixedPointValue(roundf(n * (1 << Fixed::_fractionalBits)))
+        : _fixedPointValue(roundf((float)n * (1 << Fixed::_fractionalBits)))
 {
     std::cout << "Float constructor called" << std::endl;
 }
@@ -58,12 +58,12 @@ std::ostream & operator<<(std::ostream & out, Fixed const & rhs)
 
 float Fixed::toFloat(void) const
 {
-    return (static_cast<float>(_fixedPointValue) / (1 << Fixed::_fractionalBits));
+    return ((float)_fixedPointValue / (float)(1 << Fixed::_fractionalBits));
 }
 
 int Fixed::toInt(void) const
 {
-    return (_fixedPointValue >> Fixed::_fractionalBits);
+    return ((int)_fixedPointValue / (int)(1 << Fixed::_fractionalBits));
 }
 
 int     Fixed::getRawBits(void) const
