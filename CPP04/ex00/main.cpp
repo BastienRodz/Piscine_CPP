@@ -6,13 +6,13 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:28:40 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 15:09:02 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:01:38 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dog.hpp"
-#include "cat.hpp"
-#include "wrongCat.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {

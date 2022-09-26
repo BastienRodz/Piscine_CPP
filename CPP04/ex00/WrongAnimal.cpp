@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:02:13 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 15:04:18 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:59:38 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wrongAnimal.hpp"
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal( void )
 {

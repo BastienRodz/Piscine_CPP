@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dog.hpp                                            :+:      :+:    :+:   */
-/*                            endifC                        +:+ +:+         +:+     */
+/*   wrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 11:51:38 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 11:51:49 by barodrig         ###   ########.fr       */
+/*   Created: 2022/09/26 15:01:01 by barodrig          #+#    #+#             */
+/*   Updated: 2022/09/26 15:59:56 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Dog_HPP
-# define Dog_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "animal.hpp"
-# include "iomanip"
+# include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
     public:
-        Dog( void );
-        Dog(const Dog & rhs);
-        ~Dog( void );
-        Dog &  operator=(const Dog & rhs);
+        WrongCat( void );
+        WrongCat(const WrongCat & rhs);
+        ~WrongCat( void );
+        WrongCat &  operator=(const WrongCat & rhs);
         void    makeSound( void ) const;
 };
 

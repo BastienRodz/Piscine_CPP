@@ -2,11 +2,11 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					animal.cpp\
-					cat.cpp\
-					dog.cpp\
-					wrongAnimal.cpp\
-					wrongCat.cpp
+					Animal.cpp\
+					Cat.cpp\
+					Dog.cpp\
+					WrongAnimal.cpp\
+					WrongCat.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)

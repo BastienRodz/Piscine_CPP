@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dog.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:23:31 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 14:22:13 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:19:13 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dog.hpp"
+#include "Dog.hpp"
 
 Dog::Dog( void )
 {
     this->type = "Dog";
 	std::cout << this->type << " defaultly constructed" << std::endl;
+	this->_brain = new Brain;
 	return ;
 }
 
@@ -27,6 +28,7 @@ Dog::Dog( Dog const & src )
 
 Dog::~Dog(void)
 {
+	delete( this->_brain );
 	std::cout << this->type << " destructed" << std::endl;
 	return ;
 }
