@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:58:48 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 09:58:07 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:36:56 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,12 @@ void	ClapTrap::takeDamage( unsigned int amount )
 	if (_hp <= 0)
         std::cout << "ClapTrap " << _name << " is KO, it can't take anymore damages. You should try to repair it !" << std::endl;
 	else
+	{
+		_hp -= amount;
+		if (_hp < 0)
+			_hp = 0;
 		std::cout << "ClapTrap " << _name << " takes " << amount << " damage" << std::endl;
+	}
 	return ;
 }
 

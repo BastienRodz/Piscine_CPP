@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:19:34 by barodrig          #+#    #+#             */
-/*   Updated: 2022/07/27 15:02:21 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:09:38 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ScavTrap : virtual public ClapTrap
         ~ScavTrap( void );
         ScavTrap &  operator=(const ScavTrap & rhs);
         void    guardGate( void );
+        void	attack( const std::string & target );
 };
 
 #endif
