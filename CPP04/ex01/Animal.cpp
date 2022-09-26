@@ -6,13 +6,13 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:47:45 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 16:01:45 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:31:59 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal( void )
+Animal::Animal( void ) : type("None")
 {
 	std::cout << "Animal defaultly constructed" << std::endl;
 	return ;

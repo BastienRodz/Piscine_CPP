@@ -6,29 +6,26 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:23:31 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 17:21:47 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:31:07 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog( void )
+Dog::Dog( void ) : Animal("Dog"), _brain(new Brain())
 {
-    this->type = "Dog";
 	std::cout << this->type << " defaultly constructed" << std::endl;
-	this->_brain = new Brain;
 	return ;
 }
 
-Dog::Dog( Dog const & src )
+Dog::Dog( Dog const & src ) : Animal(src), _brain(new Brain(*(src._brain)))
 {
 	std::cout << this->type << " copy constructed" << std::endl;
-	*this = src;
 }
 
 Dog::~Dog(void)
 {
-	delete( this->_brain );
+	delete( _brain );
 	std::cout << this->type << " destructed" << std::endl;
 	return ;
 }
@@ -38,7 +35,7 @@ Dog & Dog::operator=( Dog const & rhs )
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
-		this->_brain = rhs._brain;
+		*(this->_brain) = *(rhs._brain); 
 	}
 	return (*this);
 }
