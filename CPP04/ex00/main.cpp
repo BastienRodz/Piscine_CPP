@@ -6,23 +6,34 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:28:40 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 13:45:16 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:09:02 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dog.hpp"
 #include "cat.hpp"
+#include "wrongCat.hpp"
 
 int main(void)
 {
-
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+    {
+        std::cout << "\n -- Subject tests --\n";
+        const Animal* meta = new Animal();
+        const Animal* j = new Dog();
+        const Animal* i = new Cat();
+        std::cout << j->getType() << " " << std::endl;
+        std::cout << i->getType() << " " << std::endl;
+        i->makeSound();
+        j->makeSound();
+        meta->makeSound();
+    }
+    {
+        std::cout << "\n\n -- Test with WrongAnimal and WrongCat --\n";
+        const WrongAnimal* meta_bis = new WrongAnimal();
+        const WrongAnimal* k = new WrongCat();
+        std::cout << k->getType() << " " << std::endl;
+        k->makeSound();
+        meta_bis->makeSound();
+    }
     return (0);
 }

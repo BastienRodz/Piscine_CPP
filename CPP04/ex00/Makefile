@@ -4,7 +4,9 @@ GREEN			= \033[1;32m
 SRCS			= main.cpp\
 					animal.cpp\
 					cat.cpp\
-					dog.cpp
+					dog.cpp\
+					wrongAnimal.cpp\
+					wrongCat.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)
