@@ -2,7 +2,9 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					Harl.cpp
+					ClapTrap.cpp\
+					ScavTrap.cpp\
+					FragTrap.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)
@@ -10,7 +12,7 @@ OBJS			= $(SRCS:.cpp=.o)
 CC				= c++
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -std=c++98
-NAME			= harl
+NAME			= highfive
 
 all:			$(NAME)
 
