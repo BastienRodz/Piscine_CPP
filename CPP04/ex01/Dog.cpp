@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:23:31 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 16:19:13 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:21:47 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ Dog::~Dog(void)
 Dog & Dog::operator=( Dog const & rhs )
 {
 	if (this != &rhs)
+	{
 		this->type = rhs.type;
+		this->_brain = rhs._brain;
+	}
 	return (*this);
 }
 
