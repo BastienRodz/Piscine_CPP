@@ -18,7 +18,7 @@ all:			$(NAME)
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				@echo "\n${GREEN} |   Compiling CPP01/ex05"
+				@echo "\n${GREEN} |   Compiling CPP03/ex02"
 				@${CC} ${CFLAGS}  -o ${NAME} ${OBJS}
 				@echo "${YELLOW}          [OK]\n"
 
