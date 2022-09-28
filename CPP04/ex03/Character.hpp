@@ -12,15 +12,16 @@ class Character : public ICharacter
 
 	public:
 
-		Character();
+		Character( void );
+		Character( std::string nameToGive );
 		Character( Character const & src );
 		virtual ~Character() {}
 		Character &		operator=( Character const & rhs );
 
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0;
+        virtual std::string const & getName() const;
+        virtual void equip(AMateria* m);
+        virtual void unequip(int idx);
+        virtual void use(int idx, ICharacter& target);
 
 	protected:
 		std::string name;

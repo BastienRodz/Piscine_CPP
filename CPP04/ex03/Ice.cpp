@@ -4,12 +4,14 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
+	std::cout << "Ice constructor called" << std::endl;
 }
 
-Ice::Ice( const Ice & src )
+Ice::Ice( const Ice & src ) : AMateria( src )
 {
+	std::cout << "Ice copy constructor called" << std::endl;
 }
 
 
@@ -19,6 +21,7 @@ Ice::Ice( const Ice & src )
 
 Ice::~Ice()
 {
+	std::cout << "Ice destructor called" << std::endl;
 }
 
 
@@ -28,10 +31,7 @@ Ice::~Ice()
 
 Ice &				Ice::operator=( Ice const & rhs )
 {
-	if ( this != &rhs )
-	{
-		this->type = rhs.getType();
-	}
+	( void )rhs;
 	return *this;
 }
 
@@ -40,10 +40,16 @@ Ice &				Ice::operator=( Ice const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+AMateria* Ice::clone() const
+{
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
+	return (new Ice(*this));
+}
+
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *"<< std::endl;
+}
 
 
 /* ************************************************************************** */

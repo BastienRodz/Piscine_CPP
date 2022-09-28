@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:40:20 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 11:41:55 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:39:31 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
 
-class ICharacter{
+class ICharacter
+{
     public:
         virtual ~ICharacter() {}
         virtual std::string const & getName() const = 0;

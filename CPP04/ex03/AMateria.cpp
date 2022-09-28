@@ -6,16 +6,20 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:20:36 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 11:38:08 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 13:29:29 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
 AMateria::AMateria( void )
     : type("None")
 {
-    std::cout << "AMateria defaultly constructed." << std::endl;
+    std::cout << "AMateria constructor called." << std::endl;
     return ;
 }
 
@@ -26,18 +30,15 @@ AMateria::AMateria( std::string const & type )
     return ;
 }
 
-AMateria & AMateria::operator=( AMateria const & rhs )
-{
-	if (this != &rhs)
-		this->type = rhs.type;
-	return (*this);
-}
-
 AMateria::AMateria( AMateria const & src )
 {
 	std::cout << "AMateria copy constructed" << std::endl;
 	*this = src;
 }
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
 
 AMateria::~AMateria(void)
 {
@@ -45,13 +46,34 @@ AMateria::~AMateria(void)
 	return ;
 }
 
-std::string const & AMateria::getType() const
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+AMateria & AMateria::operator=( AMateria const & rhs )
 {
-    return (type);
+	if (this != &rhs)
+		this->type = rhs.type;
+	return (*this);
 }
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void    AMateria::use( ICharacter& target )
 {
     std::cout << "doing something to " << target.getName() << std::endl;
     return ;
 }
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+std::string const & AMateria::getType() const
+{
+    return (type);
+}
+
+/* ************************************************************************** */
