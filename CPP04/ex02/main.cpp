@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:13:58 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 17:45:39 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 09:12:36 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     
-    delete j;//should not create a leak
+    delete j;
     delete i;
     
 
