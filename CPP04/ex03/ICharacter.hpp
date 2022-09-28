@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:40:20 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 13:39:31 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 22:54:00 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include "AMateria.hpp"
 
+class AMateria;
 class ICharacter
 {
     public:

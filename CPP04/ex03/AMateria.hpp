@@ -6,14 +6,17 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:14:25 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 11:41:10 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 22:49:30 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Character.hpp"
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+# include <iostream>
+# include <string>
+# include "ICharacter.hpp"
 
+class ICharacter;
 class AMateria
 {
     protected:
@@ -30,3 +33,5 @@ class AMateria
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
 };
+
+#endif

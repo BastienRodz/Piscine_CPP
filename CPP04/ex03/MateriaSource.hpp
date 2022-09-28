@@ -22,7 +22,7 @@ class MateriaSource : public IMateriaSource
 
 
 	protected:
-		AMateria *stock[SIZE];
+		AMateria *inventory[SIZE];
 };
 
 #endif /* *************************************************** MATERIASOURCE_H */

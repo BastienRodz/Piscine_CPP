@@ -6,14 +6,14 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:19:28 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 13:06:03 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 22:37:58 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
-# include <AMateria.hpp>
+# include "AMateria.hpp"
 # include <iostream>
 # include <string>
 class IMateriaSource

@@ -100,6 +100,10 @@ void	Character::unequip( int idx )
 		std::cout << "Sorry, this index does not exist. Please enter a number from 0 to 3." << std::endl;
 		return ;
 	}
+	else if
+	{
+		
+	}
 	else
 	{
 		std::cout << this->getName() << " : " << std::endl;

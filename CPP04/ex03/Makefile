@@ -2,14 +2,17 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					
-					
+				AMateria.cpp\
+				Character.cpp\
+				Cure.cpp\
+				Ice.cpp\
+				MateriaSource.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
 CC				= c++
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
+CFLAGS			= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 NAME			= animals
 
 all:			$(NAME)
