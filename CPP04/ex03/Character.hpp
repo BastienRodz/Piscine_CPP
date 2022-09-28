@@ -26,8 +26,6 @@ class Character : public ICharacter
 	protected:
 		std::string name;
 		AMateria	*inventory[SIZE];
-
-
 };
 
 #endif /* ****************************************************** ICHARACTER_H */

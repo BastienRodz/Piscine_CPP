@@ -5,6 +5,8 @@
 # include <string>
 # include "IMateriaSource.hpp"
 
+# define SIZE 4
+
 class MateriaSource : public IMateriaSource
 {
 
@@ -15,12 +17,12 @@ class MateriaSource : public IMateriaSource
 		~MateriaSource();
 		MateriaSource &		operator=( MateriaSource const & rhs );
 
-		void	learnMateria( AMaeria *src );
+		void	learnMateria( AMateria *src );
 		AMateria *createMateria( std::string const & type );
 
 
-	private:
-
+	protected:
+		AMateria *stock[SIZE];
 };
 
 #endif /* *************************************************** MATERIASOURCE_H */

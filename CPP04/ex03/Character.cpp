@@ -49,8 +49,17 @@ Character &				Character::operator=( Character const & rhs )
 	if ( this != &rhs )
 	{
 		this->name = rhs.getName();
+		for ( int i = 0; i < SIZE ; i++ )
+		{
+			if (this->inventory[i] != NULL)
+					delete(this->inventory[i]);
+			if (rhs.inventory[i] != NULL)
+				this->inventory[i] = rhs.inventory[i]->clone();
+			else
+				this->inventory[i] = NULL;
+		}
 	}
-	return *this;
+	return (*this);
 }
 
 
@@ -90,12 +99,6 @@ void	Character::unequip( int idx )
 		std::cout << this->getName() << " : " << std::endl;
 		std::cout << "Sorry, this index does not exist. Please enter a number from 0 to 3." << std::endl;
 		return ;
-	}
-	else if (inventory[idx] != NULL)
-	{
-		std::cout << this->getName() << " : " << std::endl;
-		std::cout << "I am throwing " << inventory[idx]->getType() << "away from index " << idx  << std::endl;
-		inventory[idx] = NULL;
 	}
 	else
 	{
