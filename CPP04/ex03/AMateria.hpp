@@ -6,16 +6,19 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:14:25 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 11:18:51 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:41:10 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
+#include "Character.hpp"
 
 class AMateria
 {
     protected:
         std::string type;
+        
     public:
         AMateria( std::string const & type );
         AMateria( void );

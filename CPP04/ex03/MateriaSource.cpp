@@ -1,14 +1,14 @@
-#include "Cure.hpp"
+#include "MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+MateriaSource::MateriaSource()
 {
 }
 
-Cure::Cure( const Cure & src )
+MateriaSource::MateriaSource( const MateriaSource & src )
 {
 }
 
@@ -17,7 +17,7 @@ Cure::Cure( const Cure & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cure::~Cure()
+MateriaSource::~MateriaSource()
 {
 }
 
@@ -26,12 +26,12 @@ Cure::~Cure()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cure &				Cure::operator=( Cure const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	if ( this != &rhs )
-	{
-		this->type = rhs.getType();
-	}
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
 

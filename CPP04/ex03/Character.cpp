@@ -1,14 +1,14 @@
-#include "Cure.hpp"
+#include "Character.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Character::Character()
 {
 }
 
-Cure::Cure( const Cure & src )
+Character::Character( const Character & src )
 {
 }
 
@@ -17,7 +17,7 @@ Cure::Cure( const Cure & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cure::~Cure()
+Character::~Character()
 {
 }
 
@@ -26,12 +26,12 @@ Cure::~Cure()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cure &				Cure::operator=( Cure const & rhs )
+Character &				Character::operator=( Character const & rhs )
 {
-	if ( this != &rhs )
-	{
-		this->type = rhs.getType();
-	}
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
 

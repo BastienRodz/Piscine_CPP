@@ -1,13 +1,23 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 09:17:32 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 09:20:15 by barodrig         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include "AMateria.hpp"
+# include "AMateria.hpp"
+# include <iostream>
+# include <string>
+
+class Ice : public AMateria
+{
+
+	public:
+
+		Ice();
+		Ice( Ice const & src );
+		~Ice();
+
+		Ice &		operator=( Ice const & rhs );
+
+	private:
+
+};
+
+#endif /* ************************************************************* ICE_H */

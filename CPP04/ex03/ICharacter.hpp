@@ -5,15 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 09:17:55 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 09:20:19 by barodrig         ###   ########.fr       */
+/*   Created: 2022/09/28 11:40:20 by barodrig          #+#    #+#             */
+/*   Updated: 2022/09/28 11:41:55 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-class ICharacter
-{
+# include <iostream>
+# include <string>
+
+class ICharacter{
     public:
         virtual ~ICharacter() {}
         virtual std::string const & getName() const = 0;
@@ -21,3 +24,5 @@ class ICharacter
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
 };
+
+#endif

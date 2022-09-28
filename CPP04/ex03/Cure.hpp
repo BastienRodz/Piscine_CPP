@@ -1,18 +1,23 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 09:17:13 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 11:00:04 by barodrig         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef CURE_HPP
+# define CURE_HPP
 
-#include "AMateria.hpp"
+# include "AMateria.hpp"
+# include <iostream>
+# include <string>
 
-class Cure{
-    public:
-        
+class Cure : public AMateria
+{
+
+	public:
+		Cure();
+		Cure( Cure const & src );
+		~Cure();
+		Cure &		operator=( Cure const & rhs );
+		AMateria* clone() const;
+
+	private:
+
 };
+
+
+#endif /* ************************************************************ CURE_H */

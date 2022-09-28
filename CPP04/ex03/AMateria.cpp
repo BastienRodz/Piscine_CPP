@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:20:36 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/28 11:17:53 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:38:08 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ std::string const & AMateria::getType() const
 
 void    AMateria::use( ICharacter& target )
 {
-    std::cout << "doing something to " << target.getType() << std::endl;
+    std::cout << "doing something to " << target.getName() << std::endl;
     return ;
 }
