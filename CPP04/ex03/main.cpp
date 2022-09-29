@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 22:33:00 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/29 10:40:52 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/29 10:45:42 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int main() {
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	me->unequip(0);
-	me->unequip(1);
+	me->unequip(0);
+	me->unequip(-1);
 	me->unequip(2);
 	
 	ICharacter* bob = new Character("bob");
