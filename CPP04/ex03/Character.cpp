@@ -1,5 +1,7 @@
 #include "Character.hpp"
 
+static int count = 0;
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -100,14 +102,17 @@ void	Character::unequip( int idx )
 		std::cout << "Sorry, this index does not exist. Please enter a number from 0 to 3." << std::endl;
 		return ;
 	}
-	else if
+	else if ( inventory[idx] == NULL )
 	{
-		
+		std::cout << this->getName() << " : " << std::endl;
+		std::cout << "Sorry, nothing to unequip here." << std::endl;	
 	}
 	else
 	{
 		std::cout << this->getName() << " : " << std::endl;
-		std::cout << "Sorry, nothing to unequip here" << std::endl;
+		std::cout << "Unequipping " << inventory[idx]->getType() << " at index " << idx << std::endl;
+		trash[count++] = inventory[idx];
+		inventory[idx] = NULL;
 		return ;
 	}
 }
@@ -130,6 +135,15 @@ void	Character::use(int idx, ICharacter& target)
 		std::cout << this->getName() << " : " << std::endl;
 		std::cout << "Sorry, nothing to use here" << std::endl;
 		return ;
+	}
+}
+
+void	delete_trash( void )
+{
+	for ( int i = 0; i < 100; i++ )
+	{
+		if ( trash[i] != NULL )
+			delete ( trash[i] );
 	}
 }
 
