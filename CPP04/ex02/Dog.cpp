@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:23:31 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 17:31:07 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:20:51 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Dog & Dog::operator=( Dog const & rhs )
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
-		*(this->_brain) = *(rhs._brain); 
+		*(this->_brain) = *(rhs._brain);
 	}
 	return (*this);
 }
@@ -44,4 +44,13 @@ void    Dog::makeSound( void ) const
 {
     std::cout << this->type << ": WOUF WOUF ! (saying he loves you <3 )" << std::endl;
     return ;
+}
+
+void	Dog::printBrain( int n )
+{
+	if (n > 100 || n <= 0)
+		std::cout << "I am sorry, my mind does not work like taht :'( ... " << std::endl;
+	else
+		this->_brain->printMind(n);
+	return ;
 }
