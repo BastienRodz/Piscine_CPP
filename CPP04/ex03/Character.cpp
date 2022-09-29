@@ -18,6 +18,8 @@ Character::Character( std::string nameToGive ) : name(nameToGive)
 	std::cout << "Character" << this->getName() << " constructor called" << std::endl;
 	for (int i = 0; i < SIZE; i++)
 		inventory[i] = NULL;
+	for (int j = 0; j < 1000; j++)
+		trash[j] = NULL;
 }
 
 Character::Character( const Character & src )
@@ -38,6 +40,11 @@ Character::~Character()
 	{
 		if (inventory[i])
 			delete (inventory[i]);
+	}
+	for ( int j = 0; j < 1000; j++ )
+	{
+		if ( trash[j] != NULL )
+			delete ( trash[j] );
 	}
 }
 
@@ -135,15 +142,6 @@ void	Character::use(int idx, ICharacter& target)
 		std::cout << this->getName() << " : " << std::endl;
 		std::cout << "Sorry, nothing to use here" << std::endl;
 		return ;
-	}
-}
-
-void	delete_trash( void )
-{
-	for ( int i = 0; i < 100; i++ )
-	{
-		if ( trash[i] != NULL )
-			delete ( trash[i] );
 	}
 }
 

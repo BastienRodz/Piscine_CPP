@@ -26,7 +26,7 @@ class Character : public ICharacter
 	protected:
 		std::string name;
 		AMateria	*inventory[SIZE];
-		AMateria	*trash[1000]
+		AMateria	*trash[1000];
 };
 
 #endif /* ****************************************************** ICHARACTER_H */
