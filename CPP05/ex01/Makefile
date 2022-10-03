@@ -2,7 +2,7 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					Harl.cpp
+					Bureaucrat.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)
@@ -10,7 +10,7 @@ OBJS			= $(SRCS:.cpp=.o)
 CC				= c++
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -std=c++98
-NAME			= harl
+NAME			= pole_emploi
 
 all:			$(NAME)
 
