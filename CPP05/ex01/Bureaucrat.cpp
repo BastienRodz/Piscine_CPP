@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:23:03 by barodrig          #+#    #+#             */
-/*   Updated: 2022/10/03 13:46:20 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/10/04 11:21:48 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,26 @@ void		Bureaucrat::downGrade( void )
 	if (this->_grade >= 150)
 		throw GradeTooLowException();
 	this->_grade++;
+	return ;
+}
+
+void		Bureaucrat::signForm( Form form )
+{
+	if ( form.getSign() )
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName()\
+		<< " because the form has already been signed..." << std::endl;
+	}
+	else if ( this->getGrade() > form.getGradeToSign() )
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName()\
+		<< " because his grade is to low..." << std::endl;
+	}
+	else
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << "." << std::endl;
+	}
 	return ;
 }
 

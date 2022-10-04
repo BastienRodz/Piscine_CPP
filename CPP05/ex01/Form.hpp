@@ -5,6 +5,7 @@
 # include <string>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form
 {
 	private:
@@ -25,7 +26,7 @@ class Form
 		int					getGradeToSign( void ) const;
 		int					getGradeToExec( void ) const;
 
-		void	besigned( Bureaucrat const & bureaucrat );
+		void	beSigned( Bureaucrat const & bureaucrat );
 
 		class GradeTooHighException : public std::exception
 		{

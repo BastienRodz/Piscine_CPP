@@ -65,6 +65,17 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	Form::beSigned( Bureaucrat const & bureaucrat )
+{
+	if ( this->getSign() )
+		std::cout << this->getName() << " has already been signed." << std::endl;
+	else if ( bureaucrat.getGrade() <= this->getGradeToSign() )
+		this->_signed = 1;
+	else
+		throw GradeTooLowException();
+	return ;
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

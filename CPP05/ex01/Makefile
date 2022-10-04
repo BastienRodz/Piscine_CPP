@@ -2,7 +2,8 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					Bureaucrat.cpp
+					Bureaucrat.cpp\
+					Form.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)
