@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:03:24 by barodrig          #+#    #+#             */
-/*   Updated: 2022/10/04 11:26:41 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:37:33 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Bureaucrat
 		int					getGrade( void ) const;
 		void				upGrade( void );
 		void				downGrade( void );
-		void				signForm( Form form );
+		void				signForm( Form &form ) const;
 
 	class GradeTooHighException : public std::exception
 	{

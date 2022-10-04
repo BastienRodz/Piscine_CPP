@@ -1,15 +1,16 @@
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
 
-void    test1(){
-    std::cout << "////////////////TEST1 🧪//////////////" << std::endl;
+void    everythingFine()
+{
+    std::cout << "------- EVERYTHING FINE -------" << std::endl;
     try
     {
-    Bureaucrat bob("Bob", 1);
-    Form        form1("A1", 20, 20);
-    std::cout << bob;
-    std::cout << form1;
-    bob.signForm(form1);
+        Bureaucrat johndoe("Asterix", 1);
+        Form        form("Laissez-Passer A38", 20, 20);
+        std::cout << johndoe;
+        std::cout << form;
+        johndoe.signForm(form);
     }
     catch (std::exception &e)
     {
@@ -17,14 +18,15 @@ void    test1(){
     }
 }
 
-void test2(){
-    std::cout << "////////////////TEST2 🧪//////////////" << std::endl;
-    try{
-     Bureaucrat bob("Joe", 21);
-    Form        form1("A2", 20, 20);
-    std::cout << bob;
-    std::cout << form1;
-    bob.signForm(form1);
+void gradeToLow(){
+    std::cout << "\n\n------- Grade Too Low to Sign -------" << std::endl;
+    try
+    {
+        Bureaucrat johndoe("Asterix", 21);
+        Form        form("Laissez-Passer A38", 20, 20);
+        std::cout << johndoe;
+        std::cout << form;
+        johndoe.signForm(form);
     }
     catch (std::exception &e)
     {
@@ -33,14 +35,15 @@ void test2(){
 }
 
 
-void test3(){
-    std::cout << "////////////////TEST3 🧪//////////////" << std::endl;
-    try{
-    Bureaucrat bob("Joe", 0);
-    Form        form1("A2", 20, 20);
-    std::cout << bob;
-    std::cout << form1;
-    form1.beSigned(bob);
+void exceptionTooLow(){
+    std::cout << "\n\n------- Grade Too Low Exception -------" << std::endl;
+    try
+    {
+        Bureaucrat johndoe("Asterix", 21);
+        Form        form("Laissez-Passer A38", 20, 20);
+        std::cout << johndoe;
+        std::cout << form;
+        form.beSigned(johndoe);
     }
     catch (std::exception &e)
     {
@@ -50,9 +53,9 @@ void test3(){
 
 int main()
 {
-    test1();
-   test2();
-   test3();
+   everythingFine();
+   gradeToLow();
+   exceptionTooLow();
 
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 11:23:03 by barodrig          #+#    #+#             */
-/*   Updated: 2022/10/04 11:21:48 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:37:40 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		Bureaucrat::downGrade( void )
 	return ;
 }
 
-void		Bureaucrat::signForm( Form form )
+void		Bureaucrat::signForm( Form &form ) const
 {
 	if ( form.getSign() )
 	{
