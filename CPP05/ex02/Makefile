@@ -29,6 +29,7 @@ $(NAME):		$(OBJS)
 clean:
 				@echo "\n${GREEN} |   Cleaning Files"
 				@$(RM) $(OBJS)
+				@$(RM) *_shruberry
 				@echo "${YELLOW}          [OK]\n"
 
 fclean:			clean
