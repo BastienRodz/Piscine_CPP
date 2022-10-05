@@ -68,11 +68,21 @@ AForm					*Intern::makeForm(std::string formName, std::string formTarget)
 		"robotomy request",
 		"shruberry creation"
 	};
-
-	for (size_t i = 0; i < 3; i++)
+	try
 	{
-		if (formName == formNames[i])
-			return ((this->*create_ptr[i])(formTarget));
+		for (size_t i = 0; i < 3; i++)
+		{
+			if (formName == formNames[i])
+			{
+				std::cout << "Intern creates " << formName << std::endl;
+				return ((this->*create_ptr[i])(formTarget));
+			}
+		}
+		throw CantFindForm();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what();
 	}
 	return (NULL);
 }

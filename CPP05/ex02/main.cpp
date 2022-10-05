@@ -4,7 +4,7 @@
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
 
-void    test1(){
+void    ShruberryWorking(){
     std::cout << "\n\n************** SHRUBERRY TEST WORKING **************" << std::endl;
     try
     {
@@ -23,7 +23,7 @@ void    test1(){
     }
 }
 
-void test2(){
+void ShruberryNotWorking(){
     std::cout << "\n\n************** SHRUBERRY TEST NOT-WORKING **************" << std::endl;
       try
     {
@@ -42,7 +42,7 @@ void test2(){
     }
 }
  
-void test3(){
+void robotomizingWorking(){
     std::cout << "\n\n************** ROBOTOMIZING TEST WORKING **************" << std::endl;
      try
     {
@@ -68,25 +68,25 @@ void test3(){
     }
 }
 
-void test4(){
+void robotomizingNotWorking(){
     std::cout << "\n\n************** ROBOTOMIZING TEST NOT-WORKING **************" << std::endl;
      try
     {
-        Bureaucrat bob("Bob", 47);
+        Bureaucrat jimmy("jimmy", 47);
         RobotomyRequestForm robot("berry");
-        std::cout << bob;
+        std::cout << jimmy;
         std::cout << robot;
-        bob.signForm(robot);
+        jimmy.signForm(robot);
         std::cout << robot;
         std::cout << std::endl;
-        robot.execute(bob);
-        bob.executeForm(robot);
+        robot.execute(jimmy);
+        jimmy.executeForm(robot);
         std::cout << std::endl;
-        robot.execute(bob);
-        bob.executeForm(robot);
+        robot.execute(jimmy);
+        jimmy.executeForm(robot);
         std::cout << std::endl;
-        robot.execute(bob);
-        bob.executeForm(robot);
+        robot.execute(jimmy);
+        jimmy.executeForm(robot);
     }
     catch (std::exception &e)
     {
@@ -94,7 +94,7 @@ void test4(){
     }
 }
 
-void test6(){
+void presidentNotWorking(){
     std::cout << "\n\n************** PRESIDENT TEST NOT-WORKING **************" << std::endl;
      try
     {
@@ -110,7 +110,7 @@ void test6(){
     }
 }
 
-void test5(){
+void presidentWorking(){
     std::cout << "\n\n************** PRESIDENT TEST WORKING **************" << std::endl;
      try
     {
@@ -131,12 +131,13 @@ void test5(){
 
 int main()
 {
-    test1();
-    test2();
-    test3();
-    test4();
-    test5();
-    test6();
+    srand(time(NULL));
+    ShruberryWorking();
+    ShruberryNotWorking();
+    robotomizingWorking();
+    robotomizingNotWorking();
+    presidentWorking();
+    presidentNotWorking();
 
     return (0);
 }

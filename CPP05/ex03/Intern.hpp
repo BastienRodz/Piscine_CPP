@@ -10,6 +10,10 @@
 
 class Intern
 {
+	private:
+		AForm			*createPresidentialPardon( std::string target );
+		AForm			*createRobotomyRequest( std::string target );
+		AForm			*createShruberryCreationForm( std::string target );
 
 	public:
 
@@ -21,10 +25,14 @@ class Intern
 
 		AForm			*makeForm( std::string formName, std::string formTarget );
 
-	private:
-		AForm			*createPresidentialPardon( std::string target );
-		AForm			*createRobotomyRequest( std::string target );
-		AForm			*createShruberryCreationForm( std::string target );
+		class CantFindForm : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return ("Intern::exception : Sorry, the intern can't find this form.\n");
+				}
+		};
 
 };
 

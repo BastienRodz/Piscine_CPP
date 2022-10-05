@@ -8,18 +8,23 @@
 int main()
 {
     {
+        srand(time(NULL));
+
         Intern someRandomIntern;
-        AForm* rrf;
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-        std::cout << *rrf << std::endl;
+        AForm* rrf = NULL;
+        rrf = someRandomIntern.makeForm("robtomy request", "Bender");
+        if (rrf)
+            std::cout << *rrf << std::endl;
 
-        AForm* rrg;
+        AForm* rrg = NULL;
         rrg = someRandomIntern.makeForm("presidential pardon", "Julian Asange");
-        std::cout << *rrg << std::endl;
+        if (rrg)
+            std::cout << *rrg << std::endl;
 
-        AForm* rrh;
+        AForm* rrh = NULL;
         rrh = someRandomIntern.makeForm("shruberry creation", "Amazonia");
-        std::cout << *rrh << std::endl;
+        if (rrh)
+            std::cout << *rrh << std::endl;
 
         Bureaucrat macron("Macron", 1);
         macron.signForm(*rrh);
