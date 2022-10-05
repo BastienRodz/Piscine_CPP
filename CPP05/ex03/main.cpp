@@ -24,17 +24,12 @@ int main()
         Bureaucrat macron("Macron", 1);
         macron.signForm(*rrh);
         macron.executeForm(*rrh);
+        macron.signForm(*rrh);
+        std::cout << std::endl << std::endl;
 
         for (int i = 0; i < 100; i++)
             macron.downGrade();
-        try
-        {
-            macron.signForm(*rrg);
-        }
-        catch (std::exception & e)
-        {
-            std::cout << e.what();
-        }
+        macron.signForm(*rrg);
         macron.executeForm(*rrg);
 
         delete (rrh);
