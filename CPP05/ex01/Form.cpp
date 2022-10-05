@@ -67,12 +67,31 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 void	Form::beSigned( Bureaucrat const & bureaucrat )
 {
-	if ( this->getSign() )
-		std::cout << this->getName() << " has already been signed." << std::endl;
-	else if ( bureaucrat.getGrade() <= this->getGradeToSign() )
-		this->_signed = 1;
-	else
-		throw GradeTooLowException();
+	try
+	{
+		if (this->getSign())
+			throw FormNotSignedException();
+	}
+	catch (std::exception & e)
+	{
+		std::cout << bureaucrat.getName() << " can't sign, " << this->getName() << " has already been signed." << std::endl;
+		return ;
+	}
+	try
+	{
+		if ( bureaucrat.getGrade() <= this->getGradeToSign() )
+		{
+			this->_signed = 1;
+			std::cout << bureaucrat.getName() << " signed " << this->getName() << "." << std::endl;
+		}
+		else
+			throw GradeTooLowException();
+	}
+	catch (std::exception & e)
+	{
+		std::cout << bureaucrat.getName() << " couldn't sign " << this->getName()\
+		<< " because his grade is to low..." << std::endl;;
+	}
 	return ;
 }
 
