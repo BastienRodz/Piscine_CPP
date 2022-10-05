@@ -14,7 +14,7 @@ OBJS			= $(SRCS:.cpp=.o)
 CC				= c++
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -std=c++98
-NAME			= pole_emploi
+NAME			= prefecture
 
 all:			$(NAME)
 
@@ -22,7 +22,7 @@ all:			$(NAME)
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				@echo "\n${GREEN} |   Compiling CPP01/ex05"
+				@echo "\n${GREEN} |   Compiling CPP05/ex02"
 				@${CC} ${CFLAGS}  -o ${NAME} ${OBJS}
 				@echo "${YELLOW}          [OK]\n"
 
