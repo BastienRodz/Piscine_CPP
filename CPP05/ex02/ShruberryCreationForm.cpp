@@ -50,7 +50,7 @@ void		ShruberryCreationForm::execute(Bureaucrat const &executor) const
 
 	if ( !this->getSign() )
 		throw FormNotSignedException();
-	else if ( this->getGradeToSign() < executor.getGrade() )
+	else if ( this->getGradeToExec() < executor.getGrade() )
 		throw FormGradeTooLowToExec();
 	else
 	{
@@ -72,13 +72,7 @@ void		ShruberryCreationForm::execute(Bureaucrat const &executor) const
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-std::string					ShruberryCreationForm::getTarget( void ) const
-{
-	return (this->_target);
-}
-
-
+Sign
 /* 
 ******************************RobotomyRequestForm::*****************************
 */
