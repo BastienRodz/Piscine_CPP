@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:52:26 by barodrig          #+#    #+#             */
-/*   Updated: 2022/10/06 11:57:06 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:22:07 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,35 @@
 # define BASE_HPP
 
 # include <iostream>
-# include <string>
+# include <cstdlib>
+# include <ctime>
 
 class Base
 {
-
 	public:
-
-		Base();
-		Base( Base const & src );
-		virtual ~Base();
-
-		Base &		operator=( Base const & rhs );
-		
-		virtual Base 	*generate(void) = 0;
-		virtual void	identify(Base* p) = 0;
-		virtual void	identify(Base& p) = 0;
-
-	private:
-
+		virtual ~Base() {};
 };
 
-std::ostream &			operator<<( std::ostream & o, Base const & i );
+class A : public Base
+{
+	public:
+		A(){std::cout << "Class A constructed" << std::endl;}
+};
+
+class B : public Base
+{
+	public:
+		B(){std::cout << "Class B constructed" << std::endl;}
+};
+
+class C : public Base
+{
+	public:
+		C(){std::cout << "Class C constructed" << std::endl;}
+};
+
+Base 	*generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif /* ************************************************************ BASE_H */
