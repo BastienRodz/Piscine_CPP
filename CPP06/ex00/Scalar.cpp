@@ -192,10 +192,11 @@ void	Scalar::print_char( void )
 		std::cout << "char: impossible" << std::endl;
 		return ;
 	}
-	if ((lit >= 0 && lit <= 31) || lit >= 127 || lit < 0 || lit == '0')
+	char litc = std::strtod(this->_str.c_str(), NULL);
+	if ((litc >= 0 && litc <= 31) || litc >= 127 || litc < 0 || litc == '0')
 		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: " << lit << std::endl;
+		std::cout << "char: " << litc << std::endl;
 	if (this->_type == CHAR)
 	{
 		std::cout << "int: " << static_cast<int>(this->_str[0]) << std::endl;
