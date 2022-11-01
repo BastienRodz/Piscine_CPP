@@ -192,11 +192,10 @@ void	Scalar::print_char( void )
 		std::cout << "char: impossible" << std::endl;
 		return ;
 	}
-	char litc = this->_str[0];
-	if ((litc >= 0 && litc <= 31) || litc >= 127 || litc < 0 || litc == '0')
+	if ((lit >= 0 && lit <= 31) || lit >= 127 || lit < 0 || lit == '0')
 		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: " << litc << std::endl;
+		std::cout << "char: " << lit << std::endl;
 	if (this->_type == CHAR)
 	{
 		std::cout << "int: " << static_cast<int>(this->_str[0]) << std::endl;
@@ -225,8 +224,8 @@ void	Scalar::print_int( void )
 void	Scalar::print_float( void )
 {
 	double lit = std::strtod(this->_str.c_str(), NULL);
-	if ( lit > std::numeric_limits<float>::max()
-		|| lit < -std::numeric_limits<float>::min())
+	if ( lit > std::numeric_limits<double>::max()
+		|| lit < -std::numeric_limits<double>::max())
 		std::cout << "float: impossible" << std::endl;
 	else
 	{
@@ -245,7 +244,7 @@ void	Scalar::print_double( void )
 {
 	double lit = strtod(this->_str.c_str(), NULL);
 	if ( lit > std::numeric_limits<double>::max()
-		|| lit < -std::numeric_limits<double>::min() )
+		|| lit < -std::numeric_limits<double>::max() )
 		std::cout << "double: impossible" << std::endl;
 	else
 	{

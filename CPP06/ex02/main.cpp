@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:52:06 by barodrig          #+#    #+#             */
-/*   Updated: 2022/10/31 18:20:38 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/11/01 14:52:31 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ int     main(void)
 
     _base = generate();
     identify(_base);
-    std::cout << std::endl;
-    std::cout << "REF TEST" << std::endl;
+    std::cout << "\nREF TEST" << std::endl;
     delete _base;
     _base = generate();
     identify(*_base);
