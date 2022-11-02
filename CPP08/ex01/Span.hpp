@@ -2,11 +2,16 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <iomanip>
+# include <ctime>
 # include <string>
 # include <vector>
 # include <iterator>
 # include <algorithm>
 # include <exception>
+# include <unistd.h>
+# include <numeric>
+# include <limits>
 
 # define MAX 10000
 
@@ -15,6 +20,7 @@ class Span
 	private:
 		std::vector<int>	_tab;
 		unsigned int		_range;
+		unsigned int		_added;
 
 	public:
 		Span();
@@ -28,16 +34,16 @@ class Span
 		unsigned int			getRange() const;
 
 		void			addNumber( int const &n );
-		unsigned int	shortestSpan() const;
-		unsigned int	longestSpan() const;
+		int				shortestSpan() const;
+		int				longestSpan() const;
 		void			showSpans() const;
-		void			addUsingIterator( int const &n );
+		void			addUsingIterator();
 
 		class CantAddNumber : public std::exception
 		{
 			virtual const char *what() const throw()
 			{
-				return ("[Span] : The table is full, please go away !");
+				return ("\033[1;31m[Span Exception] : The table is full, please go away !\033[0m");
 			}
 		};
 
@@ -45,7 +51,7 @@ class Span
 		{
 			virtual const char *what() const throw()
 			{
-				return ("[Span] : Not enough numbers in tab to make any comparison !");
+				return ("\033[1;31m[Span Exception] : Not enough numbers in tab to make any comparison !\033[0m");
 			}
 		};
 };
