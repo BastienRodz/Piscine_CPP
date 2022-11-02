@@ -48,47 +48,60 @@ Span &				Span::operator=( Span const & rhs )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, Span const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
 void	Span::addNumber( int const &n )
 {
-	if ( this->_tab.size() < this->_range )
+	try
 	{
-		this->_tab.push_back(n);
-		std::cout << "Number " << n << " added." << std::endl;
+		if ( this->_tab.size() < this->_range )
+		{
+			this->_tab.push_back(n);
+			std::cout << "Number " << n << " added." << std::endl;
+		}
+		else
+			throw CantAddNumber();
 	}
-	else
-		throw CantAddNumber();
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 unsigned int	Span::shortestSpan() const
 {
-	if ( !_tab.size() || _tab.size() == 1 )
-		throw SpanError();
-
-	int min = *std::min_element(_tab.begin(), _tab.end());
-	int closestMin = *((std::min_element(_tab.begin(), _tab.end()))++);
-	return ( closestMin - min );
-
+	try
+	{
+		if ( !_tab.size() || _tab.size() == 1 )
+			throw SpanError();
+		int min = *std::min_element(_tab.begin(), _tab.end());
+		int closestMin = *((std::min_element(_tab.begin(), _tab.end()))++);
+		return ( closestMin - min );
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (0);
+	}
 }
 
 unsigned int	Span::longestSpan() const
 {
-	if ( !_tab.size() || _tab.size() == 1 )
-		throw SpanError();
-
-	int min = *std::min_element(_tab.begin(), _tab.end());
-	int max = *std::max_element(_tab.begin(), _tab.end());
-	return ( max - min );
+	try
+	{
+		if ( !_tab.size() || _tab.size() == 1 )
+			throw SpanError();
+		int min = *std::min_element(_tab.begin(), _tab.end());
+		int max = *std::max_element(_tab.begin(), _tab.end());
+		return ( max - min );
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (0);
+	}
 }
 
 void		Span::showSpans() const

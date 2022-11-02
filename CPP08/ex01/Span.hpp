@@ -45,7 +45,7 @@ class Span
 		{
 			virtual const char *what() const throw()
 			{
-				return ("[Span] : Not enough numbers in tab to make any !");
+				return ("[Span] : Not enough numbers in tab to make any comparison !");
 			}
 		};
 };
