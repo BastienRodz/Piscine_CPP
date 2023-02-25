@@ -1,0 +1,31 @@
+home
+scp early-hack-template.script n00dles
+scp early-hack-template.script sigma-cosmetics
+scp early-hack-template.script joesguns
+scp early-hack-template.script nectar-net
+scp early-hack-template.script hong-fang-tea
+scp early-hack-template.script harakiri-sushi
+connect n00dles
+run NUKE.exe
+run early-hack-template.script -t 1
+home
+connect sigma-cosmetics
+run NUKE.exe
+run early-hack-template.script -t 6
+home
+connect joesguns
+run NUKE.exe
+run early-hack-template.script -t 6
+home
+connect hong-fang-tea
+run NUKE.exe
+run early-hack-template.script -t 6
+home
+connect harakiri-sushi
+run NUKE.exe
+run early-hack-template.script -t 6
+home
+connect hong-fang-tea
+connect nectar-net
+run NUKE.exe
+run early-hack-template.script -t 6

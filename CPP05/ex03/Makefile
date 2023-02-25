@@ -2,15 +2,20 @@ YELLOW			= \033[1;33m
 GREEN			= \033[1;32m
 
 SRCS			= main.cpp\
-					Harl.cpp
+					Bureaucrat.cpp\
+					AForm.cpp\
+					RobotomyRequestForm.cpp\
+					ShruberryCreationForm.cpp\
+					PresidentialPardonForm.cpp\
+					Intern.cpp
 					
 
 OBJS			= $(SRCS:.cpp=.o)
 
 CC				= c++
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
-NAME			= harl
+CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g
+NAME			= urssaf
 
 all:			$(NAME)
 
@@ -18,13 +23,14 @@ all:			$(NAME)
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				@echo "\n${GREEN} |   Compiling CPP01/ex05"
+				@echo "\n${GREEN} |   Compiling CPP05/ex03"
 				@${CC} ${CFLAGS}  -o ${NAME} ${OBJS}
 				@echo "${YELLOW}          [OK]\n"
 
 clean:
 				@echo "\n${GREEN} |   Cleaning Files"
 				@$(RM) $(OBJS)
+				@$(RM) *_shruberry
 				@echo "${YELLOW}          [OK]\n"
 
 fclean:			clean

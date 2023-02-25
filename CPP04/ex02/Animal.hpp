@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:43:08 by barodrig          #+#    #+#             */
-/*   Updated: 2022/09/26 17:37:33 by barodrig         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:25:25 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Animal{
         Animal( Animal const & src );
         virtual ~Animal( void );
         Animal & operator=( Animal const & rhs );
+        
         std::string getType( void ) const;
         virtual void makeSound( void ) const = 0;
 };
