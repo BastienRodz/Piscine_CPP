@@ -28,12 +28,15 @@ class BitcoinExchange {
 		~BitcoinExchange();
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 		double getExchangeRate(const std::string& date) const;
+		std::map<std::string, double>* getPrices() const;
 	
 	private:
 		std::map<std::string, double>* m_prices;
-		void copy(const BitcoinExchange& other);
-		void clear();
+		void _copy(const BitcoinExchange& other);
+		void _clear();
 
 };
+
+std::ostream& operator<<(std::ostream& os, const BitcoinExchange& bitcoinExchange);
 
 #endif

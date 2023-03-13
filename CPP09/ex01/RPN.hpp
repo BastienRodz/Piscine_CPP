@@ -21,9 +21,17 @@
 # include <cstdlib>
 
 class RPN {
-	
 	public:
-		static int calculate(const std::string& expression);
+		RPN( std::string *expression );
+		RPN( const RPN& other );
+		~RPN();
+		RPN& operator=( const RPN& other );
+		int calculate( void ) const;
+
+	private:
+		std::string _expression;
+		void _copy( const RPN& other );
+		void _clear( void );
 
 };
 

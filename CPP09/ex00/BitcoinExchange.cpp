@@ -13,14 +13,15 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(const std::string& bitcoinPricesFile)
-    : m_prices(new std::map<std::string, double>()) {
+    : m_prices(new std::map<std::string, double>()) 
+{
     std::ifstream bitcoinFile(bitcoinPricesFile.c_str());
-    if (bitcoinFile.fail()) {
+    if (bitcoinFile.fail())
         throw std::runtime_error("Error: Failed to open BitcoinPrices.csv");
-    }
     std::string line;
     std::getline(bitcoinFile, line);
-    while (std::getline(bitcoinFile, line)) {
+    while (std::getline(bitcoinFile, line)) 
+    {
         std::istringstream ss(line);
         std::string dateStr;
         double price;
@@ -31,35 +32,60 @@ BitcoinExchange::BitcoinExchange(const std::string& bitcoinPricesFile)
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
-    : m_prices(new std::map<std::string, double>()) {
-    copy(other);
+    : m_prices(new std::map<std::string, double>())
+{
+    _copy(other);
 }
 
-BitcoinExchange::~BitcoinExchange() {
-    clear();
+BitcoinExchange::~BitcoinExchange()
+{
+    _clear();
     delete m_prices;
 }
 
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
-    if (this != &other) {
-        clear();
-        copy(other);
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
+{
+    if (this != &other)
+    {
+        _clear();
+        _copy(other);
     }
     return *this;
 }
 
-double BitcoinExchange::getExchangeRate(const std::string& date) const {
+double BitcoinExchange::getExchangeRate(const std::string& date) const
+{
     std::map<std::string, double>::const_iterator it = m_prices->find(date);
-    if (it == m_prices->end()) {
+    if (it == m_prices->end())
         throw std::runtime_error("Error: No Bitcoin price available for date " + date);
-    }
     return it->second;
 }
 
-void BitcoinExchange::copy(const BitcoinExchange& other) {
+std::map<std::string, double>* BitcoinExchange::getPrices() const
+{
+    return m_prices;
+}
+
+std::ostream& operator<<(std::ostream& os, const BitcoinExchange& bitcoinExchange)
+{
+    std::map<std::string, double> prices = *bitcoinExchange.getPrices();
+    for (std::map<std::string, double>::const_iterator it = prices.begin();
+         it != prices.end(); ++it)
+    {
+        os << it->first << " | " << it->second << std::endl;
+    }
+    return os;
+}
+
+/* PRIVATE */
+
+void BitcoinExchange::_copy(const BitcoinExchange& other)
+{
     *m_prices = *other.m_prices;
 }
 
-void BitcoinExchange::clear() {
+void BitcoinExchange::_clear()
+{
     m_prices->clear();
 }
+

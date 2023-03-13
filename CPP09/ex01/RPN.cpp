@@ -12,10 +12,37 @@
 
 #include "RPN.hpp"
 
-int RPN::calculate(const std::string& expression) {
+/** PUBLIC */
+
+RPN::RPN( std::string *expression ) : _expression(*expression)
+{
+    return ;
+}
+
+RPN::RPN( const RPN& other )
+{
+    *this = other;
+    return ;
+}
+
+RPN::~RPN()
+{
+    _clear();
+    return ;
+}
+
+RPN& RPN::operator=( const RPN& other )
+{
+    _clear();
+    _copy(other);
+    return *this;
+}
+
+int RPN::calculate( void ) const
+{
     std::stack<int> operands;
 
-    std::stringstream ss(expression);
+    std::stringstream ss(_expression);
     std::string token;
     while (ss >> token) {
         if (isdigit(token[0])) {
@@ -39,29 +66,42 @@ int RPN::calculate(const std::string& expression) {
             int lhs = operands.top();
             operands.pop();
             int result;
-            if (token == "+") {
+            if (token == "+")
                 result = lhs + rhs;
-            } else if (token == "-") {
+            else if (token == "-")
                 result = lhs - rhs;
-            } else if (token == "*") {
+            else if (token == "*")
                 result = lhs * rhs;
-            } else if (token == "/") {
-                if (rhs == 0) {
+            else if (token == "/") 
+            {
+                if (rhs == 0)
                     throw std::runtime_error("Error: Division by zero");
-                }
                 result = lhs / rhs;
-            } else {
+            } 
+            else
                 throw std::runtime_error("Error: Invalid operator " + token);
-            }
             operands.push(result);
-        } else {
+        } 
+        else
             throw std::runtime_error("Error: Invalid token " + token);
-        }
     }
-
-    if (operands.size() != 1) {
+    if (operands.size() != 1)
         throw std::runtime_error("Error: Not enough operands");
-    }
-
     return operands.top();
+}
+
+/** PRIVATE */
+
+void RPN::_copy( const RPN& other )
+{
+    if (this != &other)
+    {
+        this->_expression = other._expression;
+    }
+    return ;
+}
+
+void RPN::_clear( void )
+{
+    return ;
 }
