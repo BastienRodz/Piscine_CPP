@@ -14,7 +14,7 @@
 
 /** PUBLIC */
 
-RPN::RPN( std::string *expression ) : _expression(*expression)
+RPN::RPN( std::string expression ) : _expression(expression)
 {
     return ;
 }
@@ -44,8 +44,10 @@ int RPN::calculate( void ) const
 
     std::stringstream ss(_expression);
     std::string token;
-    while (ss >> token) {
-        if (isdigit(token[0])) {
+    while (ss >> token)
+    {
+        if (isdigit(token[0]))
+        {
             int operand = atoi(token.c_str());
             if (operand >= 10)
             {
@@ -57,10 +59,11 @@ int RPN::calculate( void ) const
             }
             if (operand < 10)
                 operands.push(operand);
-        } else if (token == "+" || token == "-" || token == "*" || token == "/") {
-            if (operands.size() < 2) {
+        } 
+        else if (token == "+" || token == "-" || token == "*" || token == "/")
+        {
+            if (operands.size() < 2)
                 throw std::runtime_error("Error: Not enough operands for operator " + token);
-            }
             int rhs = operands.top();
             operands.pop();
             int lhs = operands.top();
@@ -79,11 +82,11 @@ int RPN::calculate( void ) const
                 result = lhs / rhs;
             } 
             else
-                throw std::runtime_error("Error: Invalid operator " + token);
+                throw std::runtime_error("Error: Invalid operator");
             operands.push(result);
         } 
         else
-            throw std::runtime_error("Error: Invalid token " + token);
+            throw std::runtime_error("Error: Invalid token");
     }
     if (operands.size() != 1)
         throw std::runtime_error("Error: Not enough operands");
@@ -95,9 +98,7 @@ int RPN::calculate( void ) const
 void RPN::_copy( const RPN& other )
 {
     if (this != &other)
-    {
         this->_expression = other._expression;
-    }
     return ;
 }
 

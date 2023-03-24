@@ -22,7 +22,7 @@
 
 class RPN {
 	public:
-		RPN( std::string *expression );
+		RPN( std::string expression );
 		RPN( const RPN& other );
 		~RPN();
 		RPN& operator=( const RPN& other );

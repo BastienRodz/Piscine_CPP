@@ -23,7 +23,8 @@ int main(int ac, char **av)
 	std::string nbr = av[1];
     try
 	{
-        int result = RPN::calculate(nbr);
+        RPN rpn(nbr);
+        int result = rpn.calculate();
         std::cout << result << std::endl;
     } 
 	catch (std::exception& e)
