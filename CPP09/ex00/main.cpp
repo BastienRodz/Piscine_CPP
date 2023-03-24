@@ -12,28 +12,35 @@
 
 #include "BitcoinExchange.hpp"
 
-bool	checkDate( std::string date )
+bool checkDate(std::string date)
 {
-	if (date.length() != 11)
-		return (false);
-	if (date[4] != '-' || date[7] != '-')
-		return (false);
-	for (int i = 0; i < 10; i++)
-	{
-		if (i == 4 || i == 7)
-			continue;
-		if (isdigit(date[i]) == 0)
-			return (false);
-	}
-	//we split day, month
-	std::string day = date.substr(8, 2);
-	std::string month = date.substr(5, 2);
-	//we check they are valid
-	if (std::stoi(day) > 31 || std::stoi(day) < 1)
-		return (false);
-	if (std::stoi(month) > 12 || std::stoi(month) < 1)
-		return (false);
-	return (true);
+    if (date.length() != 11)
+        return false;
+    if (date[4] != '-' || date[7] != '-')
+        return false;
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 4 || i == 7)
+            continue;
+        if (isdigit(date[i]) == 0)
+            return false;
+    }
+
+    std::string day = date.substr(8, 2);
+    std::string month = date.substr(5, 2);
+
+    int dayInt, monthInt;
+    std::istringstream dayStream(day);
+    std::istringstream monthStream(month);
+
+    dayStream >> dayInt;
+    monthStream >> monthInt;
+
+    if (dayInt > 31 || dayInt < 1)
+        return false;
+    if (monthInt > 12 || monthInt < 1)
+        return false;
+    return true;
 }
 
 int main(int ac, char **av) 
@@ -45,7 +52,7 @@ int main(int ac, char **av)
     }
 
     // Load Bitcoin prices from CSV file into a BitcoinExchange object
-    BitcoinExchange exchange("test_csv/BitcoinPrices.csv");
+    BitcoinExchange exchange("test_csv/data.csv");
 
     // Process input file and calculate exchange rates
     std::ifstream input(av[1]);
@@ -55,51 +62,59 @@ int main(int ac, char **av)
         return (1);
     }
     std::string inputLine;
-    while (std::getline(input, inputLine))
+	try
 	{
-        std::istringstream ss(inputLine);
-		if (inputLine.empty() || inputLine[0] == '#' || inputLine == "date | value")
-			continue;
-        std::string dateStr;
-        double value;
-        std::getline(ss, dateStr, '|');
-        ss >> value;
-		if (ss.fail())
+		 while (std::getline(input, inputLine))
 		{
-			std::cerr << "Error: bad input => " << inputLine << std::endl;
-			continue;
+			std::istringstream ss(inputLine);
+			if (inputLine.empty() || inputLine[0] == '#' || inputLine == "date | value")
+				continue;
+			std::string dateStr;
+			double value;
+			std::getline(ss, dateStr, '|');
+			ss >> value;
+			if (ss.fail())
+			{
+				std::cerr << "Error: bad input => " << inputLine << std::endl;
+				continue;
+			}
+			else if (dateStr.empty())
+			{
+				std::cerr << "Error: bad input => " << inputLine << std::endl;
+				continue;
+			}
+			else if (checkDate(dateStr) == false)
+			{
+				std::cerr << "Error: bad date format." << std::endl;
+				continue;
+			}
+			else if ( value < 0 )
+			{
+				std::cerr << "Error: not a positive number." << std::endl;
+				continue;
+			}
+			else if (value > 1000)
+			{
+				std::cerr << "Error: too large a number." << std::endl;
+				continue;
+			}
+			try
+			{
+				double exchangeRate = exchange.getExchangeRate(dateStr);
+				double result = value * exchangeRate;
+				std::cout << dateStr << " => " << value << " = " << result << std::endl;
+			}
+			catch (std::exception& e)
+			{
+				std::cerr << e.what() << std::endl;
+				continue;
+			}
 		}
-		else if (dateStr.empty())
-		{
-			std::cerr << "Error: bad input => " << inputLine << std::endl;
-			continue;
-		}
-		else if (checkDate(dateStr) == false)
-		{
-			std::cerr << "Error: bad date format." << std::endl;
-			continue;
-		}
-        else if ( value < 0 )
-		{
-			std::cerr << "Error: not a positive number." << std::endl;
-			continue;
-		}
-		else if (value > 1000)
-		{
-			std::cerr << "Error: too large a number." << std::endl;
-			continue;
-		}
-		try
-		{
-			double exchangeRate = exchange.getExchangeRate(dateStr);
-			double result = value * exchangeRate;
-			std::cout << dateStr << " => " << value << " = " << result << std::endl;
-		}
-		catch (std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-			continue;
-		}
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (1);
 	}
     return 0;
 }

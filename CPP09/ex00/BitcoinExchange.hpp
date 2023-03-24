@@ -19,6 +19,8 @@
 # include <fstream>
 # include <sstream>
 # include <iostream>
+# include <cctype>
+# include <limits>
 
 class BitcoinExchange {
 	

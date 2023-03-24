@@ -25,7 +25,7 @@ BitcoinExchange::BitcoinExchange(const std::string& bitcoinPricesFile)
         std::istringstream ss(line);
         std::string dateStr;
         double price;
-        std::getline(ss, dateStr, '|');
+        std::getline(ss, dateStr, ',');
         ss >> price;
         (*m_prices)[dateStr] = price;
     }
@@ -55,9 +55,15 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 
 double BitcoinExchange::getExchangeRate(const std::string& date) const
 {
-    std::map<std::string, double>::const_iterator it = m_prices->find(date);
-    if (it == m_prices->end())
-        throw std::runtime_error("Error: No Bitcoin price available for date " + date);
+    if (m_prices->empty())
+        throw std::runtime_error("Error: The database is empty");
+
+    std::map<std::string, double>::const_iterator it = m_prices->lower_bound(date);
+
+    if (it == m_prices->begin())
+        throw std::runtime_error("Error: No Bitcoin price available for date " + date + " and no earlier date available");
+    if (it == m_prices->end() || it->first != date)
+        --it;
     return it->second;
 }
 
