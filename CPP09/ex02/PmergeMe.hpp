@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:15:22 by barodrig          #+#    #+#             */
-/*   Updated: 2023/03/24 11:57:03 by barodrig         ###   ########.fr       */
+/*   Updated: 2023/03/24 15:09:00 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 class PmergeMe
 {
     public:
-        PmergeMe(const std::vector<int>& sequenceVector, const std::list<int>& sequenceList);
+        PmergeMe(const std::vector<int>& sequenceVector, const std::list<int>& sequenceList, clock_t timeDataVector, clock_t timeDataList);
         PmergeMe(const PmergeMe& other);
         ~PmergeMe();
 
@@ -42,6 +42,8 @@ class PmergeMe
         std::list<int> m_sequenceList;
         clock_t m_timeVector;
         clock_t m_timeList;
+        clock_t m_timeDataVector;
+        clock_t m_timeDataList;
 };
 
 #endif

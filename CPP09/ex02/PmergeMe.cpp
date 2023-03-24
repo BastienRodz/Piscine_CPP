@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:56:27 by barodrig          #+#    #+#             */
-/*   Updated: 2023/03/24 14:22:52 by barodrig         ###   ########.fr       */
+/*   Updated: 2023/03/24 15:13:45 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 
 // Constructor
-PmergeMe::PmergeMe(const std::vector<int>& sequenceVector, const std::list<int>& sequenceList)
-    : m_sequenceVector(sequenceVector), m_sequenceList(sequenceList), m_timeVector(0), m_timeList(0) {}
+PmergeMe::PmergeMe(const std::vector<int>& sequenceVector, const std::list<int>& sequenceList, clock_t timeDataVector, clock_t timeDataList)
+    : m_sequenceVector(sequenceVector), m_sequenceList(sequenceList), m_timeVector(0), m_timeList(0) ,
+      m_timeDataVector(timeDataVector), m_timeDataList(timeDataList){}
 
 // Copy constructor
 PmergeMe::PmergeMe(const PmergeMe& other)
     : m_sequenceVector(other.m_sequenceVector), m_sequenceList(other.m_sequenceList),
-      m_timeVector(other.m_timeVector), m_timeList(other.m_timeList) {}
+      m_timeVector(other.m_timeVector), m_timeList(other.m_timeList), m_timeDataVector(other.m_timeDataVector),
+      m_timeDataList(other.m_timeDataList) {}
 
 // Destructor
 PmergeMe::~PmergeMe() {}
@@ -74,8 +76,10 @@ void PmergeMe::printSortingTimes() const
 
     std::cout << "Time to process a range of " << m_sequenceVector.size() << " elements with std::vector : "
               << m_timeVector << " us" << std::endl;
+    std::cout << "Data management time for std::vector : " << m_timeDataVector << " us" << std::endl;
     std::cout << "Time to process a range of " << m_sequenceList.size() << " elements with std::list : "
               << m_timeList << " us" << std::endl;
+    std::cout << "Data management time for std::list : " << m_timeDataList << " us" << std::endl;
 }
 
 // Private methods
@@ -132,29 +136,30 @@ void PmergeMe::mergeInsertSort(std::list<int>::iterator start, std::list<int>::i
     mergeInsertSort(start, mid);
     mergeInsertSort(mid, end);
 
-    // Merge the sorted halves by comparing the elements in each half and adding them to a new list in order
-    std::list<int> mergedList;
+    // Merge the sorted halves by comparing the elements in each half and adding them to a temporary buffer in order
+    std::vector<int> temp;
+    temp.reserve(std::distance(start, end));
     std::list<int>::iterator left = start;
     std::list<int>::iterator right = mid;
     while (left != mid && right != end) {
         if (*left <= *right) {
-            mergedList.push_back(*left++);
+            temp.push_back(*left++);
         }
         else {
-            mergedList.push_back(*right++);
+            temp.push_back(*right++);
         }
     }
 
-    // Add any remaining elements from the left half to the new list
+    // Add any remaining elements from the left half to the temporary buffer
     while (left != mid) {
-        mergedList.push_back(*left++);
+        temp.push_back(*left++);
     }
 
-    // Add any remaining elements from the right half to the new list
+    // Add any remaining elements from the right half to the temporary buffer
     while (right != end) {
-        mergedList.push_back(*right++);
+        temp.push_back(*right++);
     }
 
-    // Copy the sorted elements back into the original list
-    std::copy(mergedList.begin(), mergedList.end(), start);
+    // Copy the sorted elements from the temporary buffer back into the original list
+    std::copy(temp.begin(), temp.end(), start);
 }
