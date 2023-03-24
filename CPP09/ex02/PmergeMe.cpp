@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:56:27 by barodrig          #+#    #+#             */
-/*   Updated: 2023/03/24 13:35:50 by barodrig         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:22:52 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ void PmergeMe::sortSequences()
     m_timeVector = (double)m_timeVector * 1000000 / (CLOCKS_PER_SEC);
     
     m_timeList = 0;
-    std::list<int> tempList = m_sequenceList;
     clock_t startTime2 = clock();
-    mergeInsertSort(tempList.begin(), tempList.end());
+    mergeInsertSort(m_sequenceList.begin(), m_sequenceList.end());
     m_timeList += clock() - startTime2;
     m_timeList = (double)m_timeList * 1000000 / (CLOCKS_PER_SEC);
 }
@@ -82,18 +81,20 @@ void PmergeMe::printSortingTimes() const
 // Private methods
 void PmergeMe::mergeInsertSort(int start, int end)
 {
+    // If there is more than one element in the range, split it in half and sort each half
     if (start < end)
     {
         int mid = (start + end) / 2;
         mergeInsertSort(start, mid);
         mergeInsertSort(mid + 1, end);
 
+        // Create a temporary vector to store the merged elements
         std::vector<int> temp;
         temp.reserve(end - start + 1);
 
+        // Merge the two sorted halves by comparing the elements in each half and adding them to the temporary vector in order
         int i = start;
         int j = mid + 1;
-
         while (i <= mid && j <= end)
         {
             if (m_sequenceVector[i] <= m_sequenceVector[j])
@@ -102,12 +103,15 @@ void PmergeMe::mergeInsertSort(int start, int end)
                 temp.push_back(m_sequenceVector[j++]);
         }
 
+        // Add any remaining elements from the left half to the temporary vector
         while (i <= mid)
             temp.push_back(m_sequenceVector[i++]);
 
+        // Add any remaining elements from the right half to the temporary vector
         while (j <= end)
             temp.push_back(m_sequenceVector[j++]);
 
+        // Copy the sorted elements back into the original vector
         for (i = start, j = 0; i <= end; ++i, ++j)
             m_sequenceVector[i] = temp[j];
     }
@@ -115,54 +119,42 @@ void PmergeMe::mergeInsertSort(int start, int end)
 
 void PmergeMe::mergeInsertSort(std::list<int>::iterator start, std::list<int>::iterator end)
 {
-    if (start != end)
-    {
-        std::list<int> temp;
-        std::list<int>::iterator mid = start;
-        std::list<int>::iterator it = start;
-        std::list<int>::iterator it_j = mid;
-        ++it;
-
-        while (it != end)
-        {
-            it++;
-            if (it != end)
-            {
-                it++;
-                mid++;
-            }
-        }
-
-        it = start;
-        it_j = mid;
-        ++it_j;
-
-        while (it != mid && it_j != end)
-        {
-            if (*it <= *it_j)
-            {
-                temp.push_back(*it);
-                ++it;
-            }
-            else
-            {
-                temp.push_back(*it_j);
-                ++it_j;
-            }
-        }
-
-        while (it != mid)
-        {
-            temp.push_back(*it);
-            ++it;
-        }
-
-        while (it_j != end)
-        {
-            temp.push_back(*it_j);
-            ++it_j;
-        }
-
-        std::copy(temp.begin(), temp.end(), start);
+    // If there is only one element or less in the range, it is already sorted
+    if (std::distance(start, end) <= 1) {
+        return;
     }
+
+    // Find the middle element of the range and split it in half
+    std::list<int>::iterator mid = start;
+    std::advance(mid, std::distance(start, end) / 2);
+
+    // Recursively sort each half of the range
+    mergeInsertSort(start, mid);
+    mergeInsertSort(mid, end);
+
+    // Merge the sorted halves by comparing the elements in each half and adding them to a new list in order
+    std::list<int> mergedList;
+    std::list<int>::iterator left = start;
+    std::list<int>::iterator right = mid;
+    while (left != mid && right != end) {
+        if (*left <= *right) {
+            mergedList.push_back(*left++);
+        }
+        else {
+            mergedList.push_back(*right++);
+        }
+    }
+
+    // Add any remaining elements from the left half to the new list
+    while (left != mid) {
+        mergedList.push_back(*left++);
+    }
+
+    // Add any remaining elements from the right half to the new list
+    while (right != end) {
+        mergedList.push_back(*right++);
+    }
+
+    // Copy the sorted elements back into the original list
+    std::copy(mergedList.begin(), mergedList.end(), start);
 }
